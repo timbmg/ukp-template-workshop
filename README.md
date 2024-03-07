@@ -3,9 +3,9 @@
 </p>
 
 # Template Workshop
-[![License](https://img.shields.io/github/license/akatief/template-workshop)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/github/license/timbmg/ukp-template-workshop)](https://opensource.org/licenses/Apache-2.0)
 [![Python Versions](https://img.shields.io/badge/Python-3.9-blue.svg?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![CI](https://github.com/akatief/template-workshop/actions/workflows/main.yml/badge.svg)](https://github.com/akatief/template-workshop/actions/workflows/main.yml)
+[![CI](https://github.com/timbmg/ukp-template-workshop/actions/workflows/main.yml/badge.svg)](https://github.com/timbmg/ukp-template-workshop/actions/workflows/main.yml)
 
 Welcome! In this workshop you'll learn how to set up your next research project using the official [UKP Template](https://github.com/UKPLab/ukp-project-template). This repo is actually a copy of the original template with a few changes to the README, everything else is the same.
 
@@ -20,7 +20,7 @@ Let's get started!
 
 First thing first, you need to have a copy of this repository on your own GitHub account as well as on your PC.   
 
-1. Set the repository up in your personal GitHub account by clicking **[Use this template](https://github.com/akatief/template-workshop/generate)**. It's important you set the repository as **public**, otherwise the following tasks won't work correctly.
+1. Set the repository up in your personal GitHub account by clicking **[Use this template](https://github.com/timbmg/ukp-template-workshop/generate)**. It's important you set the repository as **public**, otherwise the following tasks won't work correctly.
 2. Wait until the first run of CI finishes. Github Actions will commit to your new repo with a "✅ Ready to clone and code" message.
 3. Open the repo folder and prepare a virtual environment:
 ```bash
@@ -40,23 +40,23 @@ Write a class to compute the Fibonacci sequence in an optimal way. Then, impleme
 
 This is the expected command line usage you should implement:
 ```bash
-template_workshop n # Will return fib(n)
+ukp_template_workshop n # Will return fib(n)
 ```
 
 ### What to change
 
 You need to add your code to the following files:
 
-- `template_workshop/__init__.py`: Defines the content of the template_workshop package. It's important to configure it properly to have a cleaner `import` structure in your code. Use it to avoid ugly [absolute imports](https://www.geeksforgeeks.org/absolute-and-relative-imports-in-python/).
-- `template_workshop/cli.py`: Defines how to handle CLI arguments and calls the Fibonacci class.
-- `template_workshop/fibonacci.py`: Contains the Fibonacci class.
+- `ukp_template_workshop/__init__.py`: Defines the content of the ukp_template_workshop package. It's important to configure it properly to have a cleaner `import` structure in your code. Use it to avoid ugly [absolute imports](https://www.geeksforgeeks.org/absolute-and-relative-imports-in-python/).
+- `ukp_template_workshop/cli.py`: Defines how to handle CLI arguments and calls the Fibonacci class.
+- `ukp_template_workshop/fibonacci.py`: Contains the Fibonacci class.
 
 ## 🩺 Task 2 - Implementing tests
 
 Testing is an integral part of development that ensures your code works by covering all edge cases. The percentage of your lines that are checked by tests is called *coverage*. In an ideal testing scenario you would run at every single line in your code least once. A test suite is a collection of simple functions that call different parts of your code and make some assertions. For example, here is the content of `test_base.py`, a suite for testing the (rather useless) `BaseClass` included in the package. As you can see, it runs every possible use case of BaseClass.
 
 ```py
-from template_workshop import BaseClass
+from ukp_template_workshop import BaseClass
 
 def test_template():
     assert True
@@ -73,17 +73,17 @@ def test_base_class():
 All your test suites can be run by calling from command line (a full list of arguments can be found [here](https://docs.pytest.org/en/8.0.x/)):
 
 ```bash
-pytest -v --cov-fail-under=90 --cov=template_workshop -l --tb=short --maxfail=1 tests/
+pytest -v --cov-fail-under=90 --cov=ukp_template_workshop -l --tb=short --maxfail=1 tests/
 ```
 
-Let's now turn to the class you've just implemented. You want to make sure your code *actually* works and handles all cases. For example, have you thought of what would happen if someone called `template_workshop -1`? First, write code in Fibonacci to handle what to do with negative (or zero) numbers. Then, write tests for `Fibonacci` to check that your code actually works. Your test should all complete successfully and coverage (as computed by the command above) should be at least 90% (as controlled by the `--cov-fail-under=90` in the command above.
+Let's now turn to the class you've just implemented. You want to make sure your code *actually* works and handles all cases. For example, have you thought of what would happen if someone called `ukp_template_workshop -1`? First, write code in Fibonacci to handle what to do with negative (or zero) numbers. Then, write tests for `Fibonacci` to check that your code actually works. Your test should all complete successfully and coverage (as computed by the command above) should be at least 90% (as controlled by the `--cov-fail-under=90` in the command above.
 
 ### What to change
 
 You need to work on the following files:
 
 - `tests/tests_fib.py`: Contains the test suite for the Fibonacci class. Change it to obtain 90% coverage.
-- `template_workshop/fibonacci.py`: Contains the Fibonacci class. Change it to fix bugs found during testing.
+- `ukp_template_workshop/fibonacci.py`: Contains the Fibonacci class. Change it to fix bugs found during testing.
 
 ## 🩺 Task 3 - Using GitHub Actions to check for mistakes
 
@@ -120,9 +120,9 @@ jobs: # List of separate jobs to run
                   --fail-under=9.0 \
                   $(git ls-files '*.py') || echo "::warning::Pylint check failed, but the workflow will continue."
 ```
-GitHub Actions are called after a specific trigger is detected, in the case above a push action on the main branch of your repo. GitHub Actions are implemented in the `.github/workflows` folder, and results of previous runs are in your repository's [Actions tab](https://github.com/akatief/template-workshop/actions). You can inspect the action output to understand why a specific action fails. 
+GitHub Actions are called after a specific trigger is detected, in the case above a push action on the main branch of your repo. GitHub Actions are implemented in the `.github/workflows` folder, and results of previous runs are in your repository's [Actions tab](https://github.com/timbmg/ukp-template-workshop/actions). You can inspect the action output to understand why a specific action fails. 
 
-Familiarize with the [Actions interface](https://github.com/akatief/template-workshop/actions) and understand why some of them fail. Then, apply changes to the repository to fix them. Finally, push the changes to GitHub to run the actions again. They should all show a ✅ on the page.
+Familiarize with the [Actions interface](https://github.com/timbmg/ukp-template-workshop/actions) and understand why some of them fail. Then, apply changes to the repository to fix them. Finally, push the changes to GitHub to run the actions again. They should all show a ✅ on the page.
 
 ### What to change
 
