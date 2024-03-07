@@ -1,6 +1,6 @@
 # Tests are defined here
 import pytest
-from template_workshop import BaseClass
+from ukp_template_workshop import BaseClass
 
 def test_template():
     assert True
