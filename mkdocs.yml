@@ -1,0 +1,15 @@
+site_name: template_workshop
+nav:
+  - Home: index.md
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - mkdocstrings:
+      project_name: template_workshop
+      handlers:
+        python:
+          options:
+            docstring_style: numpy
